@@ -39,7 +39,6 @@ export const useRegistration = () => {
                         setFlag(true);
                     } catch (error) {
                         const { message } = error.response.data;
-                        console.log(message);
                         setError(true);
                         setErrorMsg(message);
                     }
