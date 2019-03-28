@@ -1,8 +1,8 @@
 // export by default
 module.exports = app => {
   // grab controller functions
-  const dbQuery = require("../models/dbQuery");
-  const mailer = require("../models/mailer");
+  const dbQuery = require("../actions/dbQuery");
+  const mailer = require("../actions/mailer");
 
   /**
    * route that calls controller object to return number of users in the DB
