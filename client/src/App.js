@@ -1,42 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
+import ImageLoader from './components/ImageLoader';
 import axios from 'axios';
-import styled from 'styled-components';
 import { useRegistration } from './custom-hooks';
-import empireBackground from './media/empire-min.jpg';
-
-const StyledContainer = styled.div`
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url(${empireBackground});
-    text-align: center;
-    .banner-text {
-        @media (min-width: 320px) and (max-width: 480px) {
-            font-size: 64px;
-        }
-        font-size: 128px;
-        padding: 1em 0 0.5em 0;
-        color: #fff;
-        letter-spacing: 5px;
-        margin: 0 auto;
-        font-weight: lighter;
-    }
-    .span-text {
-        padding: 1em;
-        color: #fff;
-    }
-    .welcome-text {
-        font-size: 2em;
-        color: #fff;
-        padding: 2em 1em 1em 1em;
-        font-weight: lighter;
-    }
-`;
+import smallImage from './media/empire-min-small.jpg';
+import image from './media/empire-min.jpg';
+import {
+    StyledContainer,
+    StyledContentContainer,
+    StyledBanner,
+    StyledSpan,
+    StyledParagraph,
+} from './styles/AppStyles';
 
 function App() {
     const [count, setCount] = useState(0);
@@ -49,22 +24,23 @@ function App() {
         };
         fetchCount();
     }, []);
-
+    console.log('parent render');
     return (
         <StyledContainer>
             {flag ? (
-                <p className="welcome-text">Welcome to the Empire</p>
+                <StyledParagraph>Welcome to the Empire</StyledParagraph>
             ) : (
                 <>
-                    <div className="banner-text">JOIN US</div>
-                    <span className="span-text">
-                        Enter your email to join {count} others in the fight for
-                        the Empire. We are 100% a cult.
-                    </span>
-
-                    <Form callback={doRegister} />
-
-                    {isError && <span className="span-text">{errorMsg}</span>}
+                    <ImageLoader srcPreload={smallImage} srcLoaded={image} />
+                    <StyledContentContainer>
+                        <StyledBanner>JOIN US</StyledBanner>
+                        <StyledSpan>
+                            Enter your email to join {count} others in the fight
+                            for the Empire. We are 100% a cult.
+                        </StyledSpan>
+                        <Form callback={doRegister} />
+                        {isError && <StyledSpan>{errorMsg}</StyledSpan>}
+                    </StyledContentContainer>
                 </>
             )}
         </StyledContainer>
