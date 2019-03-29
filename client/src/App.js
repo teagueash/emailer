@@ -24,7 +24,7 @@ function App() {
         };
         fetchCount();
     }, []);
-    console.log('parent render');
+
     return (
         <StyledContainer>
             {flag ? (

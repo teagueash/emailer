@@ -20,7 +20,7 @@ function ImageLoader({ srcPreload, srcLoaded }) {
             setFadein(true);
         });
     }, []);
-    console.log('render');
+
     return (
         <StyledContainer>
             <StyledLoaded fadein={fadein} ref={imageLoaderRef} />
