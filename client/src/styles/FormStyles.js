@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const SearchInputWrapper = styled.div`
+    @media (min-width: 320px) and (max-width: 480px) {
+        padding: 2em 1em;
+    }
     padding: 1em 0 1em 0;
     display: flex;
     justify-content: center;

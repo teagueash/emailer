@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    min-height: 800px;
     & div {
         width: inherit;
         height: inherit;

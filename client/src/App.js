@@ -6,10 +6,10 @@ import { useRegistration } from './custom-hooks';
 import smallImage from './media/empire-min-small.jpg';
 import image from './media/empire-min.jpg';
 import {
-    StyledContainer,
-    StyledContentContainer,
-    StyledBanner,
-    StyledSpan,
+    LandingContainer,
+    LandingContent,
+    LandingBanner,
+    LandingParagraph,
     StyledParagraph,
 } from './styles/AppStyles';
 
@@ -26,24 +26,26 @@ function App() {
     }, []);
 
     return (
-        <StyledContainer>
+        <LandingContainer>
             {flag ? (
                 <StyledParagraph>Welcome to the Empire</StyledParagraph>
             ) : (
                 <>
                     <ImageLoader srcPreload={smallImage} srcLoaded={image} />
-                    <StyledContentContainer>
-                        <StyledBanner>JOIN US</StyledBanner>
-                        <StyledSpan>
+                    <LandingContent>
+                        <LandingBanner>JOIN US</LandingBanner>
+                        <LandingParagraph>
                             Enter your email to join {count} others in the fight
                             for the Empire. We are 100% a cult.
-                        </StyledSpan>
+                        </LandingParagraph>
                         <Form callback={doRegister} />
-                        {isError && <StyledSpan>{errorMsg}</StyledSpan>}
-                    </StyledContentContainer>
+                        {isError && (
+                            <LandingParagraph>{errorMsg}</LandingParagraph>
+                        )}
+                    </LandingContent>
                 </>
             )}
-        </StyledContainer>
+        </LandingContainer>
     );
 }
 

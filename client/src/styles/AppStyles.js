@@ -9,14 +9,14 @@ const fadein = keyframes`
   }
 `;
 
-export const StyledContainer = styled.div`
+export const LandingContainer = styled.div`
     width: 100vw;
     height: 100vh;
     position: relative;
     text-align: center;
 `;
 
-export const StyledContentContainer = styled.div`
+export const LandingContent = styled.div`
     position: absolute;
     z-index: 3;
     width: 100vw;
@@ -25,9 +25,10 @@ export const StyledContentContainer = styled.div`
     animation: ${fadein} 1s ease;
 `;
 
-export const StyledBanner = styled.div`
+export const LandingBanner = styled.div`
     @media (min-width: 320px) and (max-width: 480px) {
         font-size: 64px;
+        padding: 1em 0;
     }
     font-size: 128px;
     padding: 1em 0 0.5em 0;
@@ -37,7 +38,10 @@ export const StyledBanner = styled.div`
     font-weight: lighter;
 `;
 
-export const StyledSpan = styled.span`
+export const LandingParagraph = styled.p`
+    @media (min-width: 320px) and (max-width: 480px) {
+        padding: 2em 1em;
+    }
     padding: 1em;
     color: #fff;
 `;
